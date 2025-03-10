@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header {
+            background-color: #ffe0e9;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #ff9ebb;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #PhoneNumber, #Age, #Email, #order, #FullName {
+            background-color: #f4acb7;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            background-color: #ffc8dd;
+            margin: auto;
+            width: 300px;
+            border: 5px solid #ff7096;
+            border-radius: 10px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .about {
+            width: 300px;
+            height: 100px;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        body {
+        	font-family: ui-rounded;
+        }
+       
+    </style>
+</head>
+
+<body style="background-image: url(https://i.pinimg.com/736x/63/86/23/6386237e72d42cd0a21d59ad5c923d9f.jpg);">
+
+    <div class="container my-5">
+        <div class="header">
+            <h1><span style="color:#e27396"> Taylor </span> Tickets</h1>
+        </div>
+
+        <div class="content">
+            <h3>Sign Up Sheet</h3>
+            <form id="ticketForm">
+                
+                <div class="container mt-4">
+                    
+                    <div class="email mb-3">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="Email" placeholder="Email">
+                    </div>
+
+                    <div class="Full name mb-3">
+                        <label for="inputFullName">Full Name</label>
+                        <input type="text" class="form-control" id="FullName" placeholder="Full Name">
+                    </div>
+
+                    <div class="Recipe mb-3">
+                        <label>Choose your seat:</label>
+                        <select class="form-select" id="seat">
+                            <option value="none">Seat</option>
+                            <option value="4000">Upper Box</option>
+                            <option value="6000">Box Regular</option>
+                            <option value="10000">Box Premium</option>
+                            <option value="14000">Patron</option>
+                            <option value="17000">Standing</option>
+                            <option value="20000">Standing + Backstage</option>
+                        </select>
+                    </div>
+
+                    <div class="Recipe mb-3">
+                        <label>Choose your venue:</label>
+                        <select class="form-select" id="loc">
+                            <option value="none">Location</option>
+                            <option value="0.00">Manhattan</option>
+                            <option value="0.00">Los Angeles</option>
+                            <option value="0.00">Michigan</option>
+                            <option value="0.00">California Square</option>
+                            <option value="0.00">New York Stadium</option>
+                        </select>
+                    </div>
+
+                    <div class="Extra mb-3">
+                        <label for="inputExtra">Extra Info</label>
+                        <input type="text" class="form-control" id="Extra" placeholder="Extra (Optional)">
+                    </div>
+
+                   
+                    <button type="button" class="btn btn-danger" onclick="showTicketPrice()">TICKET PRICE</button>
+
+                    
+                    <button type="button" class="btn btn-danger" onclick="alert('You are now in line, and your ticket will be sent shortly')">Submit</button>
+
+                    <details ontoggle="message()">
+                        <summary>Extra Details!</summary>
+                        <i>Your ticket will be billed once you've reached the front of the line. Check your Gmail for further details. Thank you!</i>
+                    </details>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        
+        const seatPrices = {
+            "Upper Box": 4000,
+            "Box Regular": 6000,
+            "Box Premium": 10000,
+            "Patron": 14000,
+            "Standing": 17000,
+            "Standing + Backstage": 20000
+        };
+
+       
+        function showTicketPrice() {
+            const seat = document.getElementById("seat").value;
+            const loc = document.getElementById("loc").value;
+            
+            if (seat === "none" || loc === "none") {
+                alert("Please choose a seat and location.");
+                return;
+            }
+
+            const seatPrice = parseFloat(seat);
+            
+            alert("Your ticket price is: $" + seatPrice);
+        }
+    </script>
+
+    <a href="index.html" class="btn btn-danger">Home</a>
+
+</body>
+</html>
